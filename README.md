@@ -115,9 +115,23 @@ Supported policy options:
 - `treatHiddenProfilesAsInactive`: treat profiles that never expose a visible post date as removable
 - `allowlistHandles`: handles that should always be kept
 
+The config file does not overwrite [src/rules.mjs](/Users/agentsandbox/Documents/New%20project/src/rules.mjs). That file still defines the built-in defaults and evaluation logic; your config file only overrides those defaults at runtime for the current run.
+
 CLI flags like `--inactive-months` and `--keywords` still override the config file.
 
 ## Notes
+
+- Example of a larger real-world run:
+
+```bash
+npm start -- --headed --browser chrome --handle Capcaptainteemo --deep-scan --apply --resume --limit 3650 --collect-batch-size 100 --recovery-cooldown-ms 60000
+```
+
+In that example:
+
+- `--limit 3650` means the run is allowed to work through up to 3650 followed accounts in total
+- `--collect-batch-size 100` means the tool collects around 100 more handles at a time before returning to profile checks
+- `--recovery-cooldown-ms` is part of the recovery behavior; if you are not actively tuning recovery, it is usually best to leave it alone
 
 - The inactivity rule only triggers when a visible post date is available on the profile timeline.
 - Depending on config, hidden or no-post profiles can also count as removable.

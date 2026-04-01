@@ -3046,7 +3046,11 @@ async function main() {
       );
     }
 
-    console.log(`Collected ${followingHandles.length} followed accounts for evaluation.`);
+    if (options.deepScan && !runState && followingHandles.length === 0) {
+      console.log("Starting with an empty local queue. Collecting the first batch from your Following page now.");
+    } else {
+      console.log(`Collected ${followingHandles.length} followed accounts for evaluation.`);
+    }
     await updateProgressDashboard(session, {
       ownHandle,
       phase: options.deepScan ? "Collecting and resolving accounts" : "Resolving accounts",
@@ -3058,7 +3062,7 @@ async function main() {
       apply: options.apply,
       deepScan: options.deepScan,
     });
-    if (followingHandles.length === 0) {
+    if (followingHandles.length === 0 && !(options.deepScan && !runState)) {
       console.warn("No followed accounts were detected. Debug details were added to the JSON report.");
     }
 

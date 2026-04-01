@@ -1,0 +1,25 @@
+{
+  "defaults": {
+    "inactiveMonths": 2
+  },
+  "policy": {
+    "keepMutuals": true,
+    "treatNoPublicPostsAsInactive": true,
+    "treatHiddenProfilesAsInactive": true,
+    "keywords": [
+      "cm",
+      "mod",
+      "kol",
+      "community manager",
+      "community moderator",
+      "moderator",
+      "alpha hunter",
+      "alpha caller",
+      "caller"
+    ],
+    "allowlistHandles": [
+      "jack",
+      "example_friend"
+    ]
+  }
+}

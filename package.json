@@ -1,0 +1,19 @@
+{
+  "name": "x-unfollow-tool",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "CLI tool that unfollows X accounts based on inactivity or profile keywords.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/cli.mjs",
+    "check": "node --check src/cli.mjs && node --check src/rules.mjs",
+    "test": "node --test",
+    "setup:browser": "npx playwright install chromium"
+  },
+  "dependencies": {
+    "playwright": "1.54.1"
+  }
+}

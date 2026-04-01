@@ -1,0 +1,10 @@
+node_modules/
+.x-session/
+.x-session-*/
+.x-*-state.json
+.x-unfollow-state.json
+reports/
+x-unfollow.config.json
+.repo-inspect-claude-code/
+reports/
+.DS_Store
